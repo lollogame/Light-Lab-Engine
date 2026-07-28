@@ -1,1 +1,20 @@
-All Rights Reserved.
+SOURCE-AVAILABLE AND RESTRICTED USE LICENSE
+
+Copyright (c) 2026 Tizio9258
+
+1. GRANT OF LICENSE
+Subject to the terms and conditions of this License, the Copyright Holder hereby grants you a non-exclusive, non-transferable, worldwide right to:
+  (a) Read, inspect, and study the source code of this software;
+  (b) Integrate and use this library/API into your own applications as an unaltered dependency.
+
+2. RESTRICTIONS
+Unless you have obtained prior written permission from the Copyright Holder, you strictly MAY NOT:
+  (a) Modify, adapt, translate, transform, or create derivative works of this software, in whole or in part;
+  (b) Create public forks, host alternative distributions, or redistribute modified or unmodified copies of this source code;
+  (c) Reverse engineer, decompile, or disassemble any portion of this software, except to the extent permitted by applicable law.
+
+3. REQUESTING PERMISSIONS
+If you wish to modify the code, create a fork, or contribute to the project, you must submit a formal request to the Copyright Holder at [Tua Email o Link per Richieste Permessi] and receive express written authorization prior to taking any such action.
+
+4. NO WARRANTY
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
