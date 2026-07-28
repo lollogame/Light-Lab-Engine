@@ -1,4 +1,4 @@
-# 🔦 Spotlight API Documentation
+# Spotlight API Documentation
 
 An API for **Minecraft Forge 1.20.1** (Mod ID: `lwe`) that allows mod developers to create, manipulate, and render real-time volumetric spotlights with customizable vectors, colors, lens flares, dynamic block collision raycasting, and texture gobo projections.
 
@@ -25,7 +25,7 @@ An API for **Minecraft Forge 1.20.1** (Mod ID: `lwe`) that allows mod developers
 
 ---
 
-## 📋 Features
+## Features
 
 - **Volumetric Beams & Origin Lens Flares:** Renders real-time billboard lens flares and volumetric light beams in screen space and world space.
 - **Dynamic Collision Raycasting:** Active beams raycast against solid blocks in real-time (`SpotlightRaytracer`), dynamically shortening the visual beam when hitting obstacles.
@@ -35,7 +35,7 @@ An API for **Minecraft Forge 1.20.1** (Mod ID: `lwe`) that allows mod developers
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Creating & Registering a Spotlight
 
@@ -127,7 +127,7 @@ SpotlightAPI.clearAll();
 
 ---
 
-## 🔄 Updating Spotlights (Single & Batch)
+## Updating Spotlights (Single & Batch)
 
 ### 1. How Value Updates Work
 
@@ -197,7 +197,7 @@ public void setBeamRadius(float beamRadius) { this.beamRadius = beamRadius; }
 
 ---
 
-## 📖 API Documentation
+## API Documentation
 
 ### `SpotlightAPI`
 `tizio.dev.lwe.api.SpotlightAPI`
@@ -262,7 +262,7 @@ Manages 2D Texture Array (`GL_TEXTURE_2D_ARRAY`) registration for light projecti
 
 ---
 
-## ⚙️ Architecture & Mechanics
+## Architecture & Mechanics
 
 1. **Client-Side Rendering Hook (`SpotlightRenderHandler`):** Listens to Forge event `RenderLevelStageEvent.Stage.AFTER_TRANSLUCENT_BLOCKS` to render volumetric quads and flare quads with additive blending (`GL_SRC_ALPHA`, `GL_ONE`).
 2. **Raytracing Collision Engine (`SpotlightRaytracer`):** Runs on client tick (`TickEvent.ClientTickEvent`). Executes `level.clip()` raycasts from each light origin along its direction vector to find block collisions (`ClipContext.Block.COLLIDER`). Dynamically updates `visualBeamLength` so beams terminate cleanly against solid structures.
@@ -271,7 +271,7 @@ Manages 2D Texture Array (`GL_TEXTURE_2D_ARRAY`) registration for light projecti
 
 ---
 
-## ⚠️ Best Practices & Limitations
+## Best Practices & Limitations
 
 - **Maximum Capacity:** The API supports up to **2048 spotlights** concurrently (`LightDataTexture.MAX_LIGHTS`).
 - **Client Side Context:** `SpotlightAPI` render routines operate exclusively on the client thread (`Dist.CLIENT`). Ensure calls involving API data structures occur on client logic or are safely guarded by `level.isClientSide()`.
