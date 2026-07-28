@@ -1,0 +1,26 @@
+{
+  "blend": {
+    "func": "add",
+    "srcrgb": "srcalpha",
+    "dstrgb": "one",
+    "srcalpha": "zero",
+    "dstalpha": "one"
+  },
+  "vertex": "lwe:projection",
+  "fragment": "lwe:spotlight_beam",
+  "attributes": [
+    "Position",
+    "Color",
+    "UV0"
+  ],
+  "uniforms": [
+    { "name": "ModelViewMat", "type": "matrix4x4", "count": 16, "values": [ 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1 ] },
+    { "name": "ProjMat", "type": "matrix4x4", "count": 16, "values": [ 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1 ] },
+    { "name": "CameraPos", "type": "float", "count": 3, "values": [ 0.0, 0.0, 0.0 ] },
+    { "name": "LightPos", "type": "float", "count": 3, "values": [ 0.0, 0.0, 0.0 ] },
+    { "name": "LightDir", "type": "float", "count": 3, "values": [ 0.0, -1.0, 0.0 ] },
+    { "name": "CamDir", "type": "float", "count": 3, "values": [ 0.0, 0.0, 1.0 ] },
+    { "name": "FadeParams", "type": "float", "count": 2, "values": [ 1.0, 4.0 ] },
+    { "name": "GoboIndex", "type": "int", "count": 1, "values": [ -1 ] }
+  ]
+}
