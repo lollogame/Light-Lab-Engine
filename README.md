@@ -179,60 +179,9 @@ public void updateAllSpotlightsGlobally(float time) {
     }
 }
 ```
-
 ---
 
-### 4. Complete Animated Spotlight Example
-
-Below is a complete implementation pattern for a rotating searchlight/lighthouse attached to a block or entity:
-
-```java
-import org.joml.Vector3f;
-import org.joml.Vector4f;
-import tizio.dev.lwe.api.SpotlightAPI;
-import tizio.dev.lwe.api.data.SpotlightInstance;
-
-public class SearchlightController {
-
-    private SpotlightInstance spotlight;
-    private float rotationAngle = 0.0f;
-
-    public void onInitialize(Vector3f blockPos) {
-        // Register initial spotlight facing downwards
-        spotlight = SpotlightAPI.registerLight(new SpotlightInstance(
-            blockPos,
-            new Vector3f(0.0f, -1.0f, 0.0f),
-            new Vector4f(1.0f, 0.9f, 0.6f, 1.0f), // Warm light
-            1.5f, 1.0f, 40.0f, 40.0f, 3.0f
-        ));
-    }
-
-    public void onClientTick() {
-        if (spotlight == null) return;
-
-        // Increment angle
-        rotationAngle += 0.04f;
-
-        // Calculate smooth circular direction vector
-        float dirX = (float) Math.cos(rotationAngle);
-        float dirZ = (float) Math.sin(rotationAngle);
-
-        // Update direction; renderer and raytracer update automatically next frame!
-        spotlight.setDirection(new Vector3f(dirX, -0.3f, dirZ));
-    }
-
-    public void onRemove() {
-        if (spotlight != null) {
-            SpotlightAPI.unregisterLight(spotlight);
-            spotlight = null;
-        }
-    }
-}
-```
-
----
-
-### 5. Recommended Instance Setters
+### 4. Recommended Instance Setters
 
 By default, `SpotlightInstance` includes setters for `position`, `direction`, `visualBeamLength`, and `goboIndex`. To enable dynamic adjustments of all parameters (color, size, beam spread), add these additional setters to `SpotlightInstance.java`:
 
