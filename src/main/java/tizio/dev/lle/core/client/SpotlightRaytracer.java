@@ -1,4 +1,4 @@
-package tizio.dev.lwe.core.client;
+package tizio.dev.lle.core.client;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -11,9 +11,9 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import tizio.dev.lwe.core.MainClass;
-import tizio.dev.lwe.api.SpotlightAPI;
-import tizio.dev.lwe.api.data.SpotlightInstance;
+import tizio.dev.lle.core.MainClass;
+import tizio.dev.lle.api.SpotlightAPI;
+import tizio.dev.lle.api.data.SpotlightInstance;
 
 @Mod.EventBusSubscriber(modid = MainClass.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
 public class SpotlightRaytracer {

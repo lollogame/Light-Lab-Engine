@@ -1,7 +1,7 @@
 #version 150
 
 #moj_import <fog.glsl>
-#moj_import <lwe_dynamic_block_lighting.glsl>
+#moj_import <lle_dynamic_block_lighting.glsl>
 
 uniform sampler2D Sampler0;
 
@@ -16,8 +16,8 @@ in vec4 lightMapColor;
 in vec4 overlayColor;
 in vec2 texCoord0;
 in vec4 normal;
-in vec3 lweWorldPos;
-in vec3 lweNormal;
+in vec3 lleWorldPos;
+in vec3 lleNormal;
 
 out vec4 fragColor;
 
@@ -29,6 +29,6 @@ void main() {
     color *= vertexColor * ColorModulator;
     color.rgb = mix(overlayColor.rgb, color.rgb, overlayColor.a);
     color *= lightMapColor;
-    color.rgb = lwe_apply_dynamic_lights(color.rgb, lweWorldPos, lweNormal);
+    color.rgb = lle_apply_dynamic_lights(color.rgb, lleWorldPos, lleNormal);
     fragColor = linear_fog(color, vertexDistance, FogStart, FogEnd, FogColor);
 }

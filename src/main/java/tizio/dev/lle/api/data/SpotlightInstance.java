@@ -1,4 +1,4 @@
-package tizio.dev.lwe.api.data;
+package tizio.dev.lle.api.data;
 
 import org.joml.Vector3f;
 import org.joml.Vector4f;

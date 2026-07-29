@@ -1,4 +1,4 @@
-package tizio.dev.lwe.core.client;
+package tizio.dev.lle.core.client;
 
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import net.minecraft.client.renderer.ShaderInstance;
@@ -7,7 +7,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterShadersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import tizio.dev.lwe.core.MainClass;
+import tizio.dev.lle.core.MainClass;
 
 import java.io.IOException;
 

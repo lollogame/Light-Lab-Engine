@@ -6,8 +6,8 @@
     "srcalpha": "zero",
     "dstalpha": "one"
   },
-  "vertex": "lwe:projection",
-  "fragment": "lwe:spotlight_flare",
+  "vertex": "lle:projection",
+  "fragment": "lle:spotlight_flare",
   "attributes": [
     "Position",
     "Color",

@@ -1,4 +1,4 @@
-package tizio.dev.lwe.core;
+package tizio.dev.lle.core;
 
 import com.mojang.logging.LogUtils;
 
@@ -13,7 +13,7 @@ import org.slf4j.Logger;
 @Mod(MainClass.MODID)
 public class MainClass {
 
-    public static final String MODID = "lwe";
+    public static final String MODID = "lle";
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public MainClass() {

@@ -1,4 +1,4 @@
-package tizio.dev.lwe.core.client.renderer;
+package tizio.dev.lle.core.client.renderer;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -14,10 +14,10 @@ import org.joml.Matrix4f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 import org.lwjgl.opengl.GL11;
-import tizio.dev.lwe.core.MainClass;
-import tizio.dev.lwe.api.SpotlightAPI;
-import tizio.dev.lwe.core.client.ClientShaders;
-import tizio.dev.lwe.api.data.SpotlightInstance;
+import tizio.dev.lle.core.MainClass;
+import tizio.dev.lle.api.SpotlightAPI;
+import tizio.dev.lle.core.client.ClientShaders;
+import tizio.dev.lle.api.data.SpotlightInstance;
 
 @Mod.EventBusSubscriber(modid = MainClass.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
 public class SpotlightRenderHandler {

@@ -1,10 +1,10 @@
-uniform int LwePointCount;
-uniform int LweSpotCount;
-uniform sampler2D LwePointData;
-uniform sampler2D LweSpotData;
-uniform sampler2DArray LweGoboArray;
+uniform int PointCount;
+uniform int SpotCount;
+uniform sampler2D PointData;
+uniform sampler2D SpotData;
+uniform sampler2DArray GoboArray;
 
-vec3 lwe_point_light(vec3 worldPos, vec3 normal, vec3 lightPos, vec4 colorRadius, vec4 params) {
+vec3 lle_point_light(vec3 worldPos, vec3 normal, vec3 lightPos, vec4 colorRadius, vec4 params) {
     vec3 toLight = lightPos - worldPos;
     float distanceToLight = length(toLight);
     float radius = max(colorRadius.w, 0.001);
@@ -13,7 +13,7 @@ vec3 lwe_point_light(vec3 worldPos, vec3 normal, vec3 lightPos, vec4 colorRadius
     return colorRadius.rgb * attenuation * ndotl * params.x;
 }
 
-vec3 lwe_spot_light(vec3 worldPos, vec3 normal, vec3 lightPos, vec3 lightDir, vec4 colorLength, vec4 params) {
+vec3 lle_spot_light(vec3 worldPos, vec3 normal, vec3 lightPos, vec3 lightDir, vec4 colorLength, vec4 params) {
     vec3 fromLight = worldPos - lightPos;
     float distanceToLight = length(fromLight);
     float lengthLimit = max(colorLength.w, 0.001);
@@ -25,7 +25,7 @@ vec3 lwe_spot_light(vec3 worldPos, vec3 normal, vec3 lightPos, vec3 lightDir, ve
     return colorLength.rgb * coneMask * attenuation * ndotl * params.z;
 }
 
-float lwe_gobo_mask(vec3 worldPos, vec3 lightPos, vec3 lightDir, float outerCos, int goboIndex) {
+float lle_gobo_mask(vec3 worldPos, vec3 lightPos, vec3 lightDir, float outerCos, int goboIndex) {
     if (goboIndex < 0) return 1.0;
 
     vec3 dir = normalize(lightDir);
@@ -51,30 +51,30 @@ float lwe_gobo_mask(vec3 worldPos, vec3 lightPos, vec3 lightDir, float outerCos,
     vec2 uv = vec2(u, v) * 0.5 + 0.5;
     if (uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0) return 0.0;
 
-    return texture(LweGoboArray, vec3(uv, float(goboIndex))).r;
+    return texture(GoboArray, vec3(uv, float(goboIndex))).r;
 }
 
-vec3 lwe_apply_dynamic_lights(vec3 baseColor, vec3 worldPos, vec3 normal) {
+vec3 lle_apply_dynamic_lights(vec3 baseColor, vec3 worldPos, vec3 normal) {
     vec3 n = normalize(normal);
     vec3 added = vec3(0.0);
 
-    for (int i = 0; i < LwePointCount; i++) {
-        vec4 data0 = texelFetch(LwePointData, ivec2(i * 4 + 0, 0), 0);
-        vec4 data1 = texelFetch(LwePointData, ivec2(i * 4 + 1, 0), 0);
-        vec4 data2 = texelFetch(LwePointData, ivec2(i * 4 + 2, 0), 0);
+    for (int i = 0; i < PointCount; i++) {
+        vec4 data0 = texelFetch(PointData, ivec2(i * 4 + 0, 0), 0);
+        vec4 data1 = texelFetch(PointData, ivec2(i * 4 + 1, 0), 0);
+        vec4 data2 = texelFetch(PointData, ivec2(i * 4 + 2, 0), 0);
 
         vec3 pos = data0.xyz;
         vec4 colorRadius = vec4(data1.xyz, data0.w);
         vec4 params = vec4(data1.w, data2.x, 0.0, 0.0);
 
-        added += lwe_point_light(worldPos, n, pos, colorRadius, params);
+        added += lle_point_light(worldPos, n, pos, colorRadius, params);
     }
 
-    for (int i = 0; i < LweSpotCount; i++) {
-        vec4 data0 = texelFetch(LweSpotData, ivec2(i * 4 + 0, 0), 0);
-        vec4 data1 = texelFetch(LweSpotData, ivec2(i * 4 + 1, 0), 0);
-        vec4 data2 = texelFetch(LweSpotData, ivec2(i * 4 + 2, 0), 0);
-        vec4 data3 = texelFetch(LweSpotData, ivec2(i * 4 + 3, 0), 0);
+    for (int i = 0; i < SpotCount; i++) {
+        vec4 data0 = texelFetch(SpotData, ivec2(i * 4 + 0, 0), 0);
+        vec4 data1 = texelFetch(SpotData, ivec2(i * 4 + 1, 0), 0);
+        vec4 data2 = texelFetch(SpotData, ivec2(i * 4 + 2, 0), 0);
+        vec4 data3 = texelFetch(SpotData, ivec2(i * 4 + 3, 0), 0);
 
         vec3 pos = data0.xyz;
         vec3 dir = data2.xyz;
@@ -82,9 +82,9 @@ vec3 lwe_apply_dynamic_lights(vec3 baseColor, vec3 worldPos, vec3 normal) {
         vec4 params = vec4(data3.x, data3.y, data1.w, data2.w);
 
         int goboIndex = int(round(data3.z));
-        float goboMask = lwe_gobo_mask(worldPos, pos, dir, data3.y, goboIndex);
+        float goboMask = lle_gobo_mask(worldPos, pos, dir, data3.y, goboIndex);
 
-        added += lwe_spot_light(worldPos, n, pos, dir, colorLength, params) * goboMask;
+        added += lle_spot_light(worldPos, n, pos, dir, colorLength, params) * goboMask;
     }
 
     return baseColor + added * baseColor;

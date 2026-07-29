@@ -23,8 +23,8 @@ out float vertexDistance;
 out vec4 vertexColor;
 out vec2 texCoord0;
 out vec4 normal;
-out vec3 lweWorldPos;
-out vec3 lweNormal;
+out vec3 lleWorldPos;
+out vec3 lleNormal;
 
 void main() {
     gl_Position = ProjMat * ModelViewMat * vec4(Position, 1.0);
@@ -35,6 +35,6 @@ void main() {
     normal = ProjMat * ModelViewMat * vec4(Normal, 0.0);
 
     vec4 viewPos = ModelViewMat * vec4(Position, 1.0);
-    lweWorldPos = IViewRotMat * viewPos.xyz;
-    lweNormal = normalize(IViewRotMat * mat3(ModelViewMat) * Normal);
+    lleWorldPos = IViewRotMat * viewPos.xyz;
+    lleNormal = normalize(IViewRotMat * mat3(ModelViewMat) * Normal);
 }

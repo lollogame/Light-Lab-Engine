@@ -1,9 +1,9 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "tizio.dev.lwe.core.mixin",
+  "package": "tizio.dev.lle.core.mixin",
   "compatibilityLevel": "JAVA_8",
-  "refmap": "lwe.refmap.json",
+  "refmap": "lle.refmap.json",
   "mixins": [
   ],
   "client": [

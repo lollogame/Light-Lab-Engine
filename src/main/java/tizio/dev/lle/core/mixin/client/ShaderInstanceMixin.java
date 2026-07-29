@@ -1,11 +1,11 @@
-package tizio.dev.lwe.core.mixin.client;
+package tizio.dev.lle.core.mixin.client;
 
 import net.minecraft.client.renderer.ShaderInstance;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import tizio.dev.lwe.core.client.renderer.DynamicLightUniforms;
+import tizio.dev.lle.core.client.renderer.DynamicLightUniforms;
 
 @Mixin(ShaderInstance.class)
 public abstract class ShaderInstanceMixin {

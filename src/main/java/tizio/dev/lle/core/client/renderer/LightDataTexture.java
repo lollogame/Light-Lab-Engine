@@ -1,4 +1,4 @@
-package tizio.dev.lwe.core.client.renderer;
+package tizio.dev.lle.core.client.renderer;
 
 import net.minecraft.world.phys.Vec3;
 import org.joml.Vector3f;
@@ -9,7 +9,7 @@ import org.lwjgl.opengl.GL12;
 import org.lwjgl.opengl.GL13;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL30;
-import tizio.dev.lwe.api.data.SpotlightInstance;
+import tizio.dev.lle.api.data.SpotlightInstance;
 
 import java.nio.FloatBuffer;
 import java.util.Collection;
@@ -113,14 +113,14 @@ public class LightDataTexture {
 
         int previousUnit = beginRawUnit(GL13.GL_TEXTURE10);
         GL11.glBindTexture(GL11.GL_TEXTURE_2D, pointTextureId);
-        int locPoint = GL20.glGetUniformLocation(programId, "LwePointData");
+        int locPoint = GL20.glGetUniformLocation(programId, "PointData");
         if (locPoint != -1) {
             GL20.glUniform1i(locPoint, 10);
         }
 
         GL13.glActiveTexture(GL13.GL_TEXTURE11);
         GL11.glBindTexture(GL11.GL_TEXTURE_2D, spotTextureId);
-        int locSpot = GL20.glGetUniformLocation(programId, "LweSpotData");
+        int locSpot = GL20.glGetUniformLocation(programId, "SpotData");
         if (locSpot != -1) {
             GL20.glUniform1i(locSpot, 11);
         }

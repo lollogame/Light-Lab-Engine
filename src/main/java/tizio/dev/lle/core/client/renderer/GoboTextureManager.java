@@ -1,4 +1,4 @@
-package tizio.dev.lwe.core.client.renderer;
+package tizio.dev.lle.core.client.renderer;
 
 import com.mojang.blaze3d.platform.NativeImage;
 import net.minecraft.client.Minecraft;
@@ -10,7 +10,7 @@ import org.lwjgl.opengl.GL12;
 import org.lwjgl.opengl.GL13;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL30;
-import tizio.dev.lwe.core.MainClass;
+import tizio.dev.lle.core.MainClass;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -54,7 +54,7 @@ public final class GoboTextureManager {
 
         int previousUnit = beginRawUnit(GOBO_TEXTURE_UNIT);
         GL11.glBindTexture(GL30.GL_TEXTURE_2D_ARRAY, arrayTextureId);
-        int loc = GL20.glGetUniformLocation(programId, "LweGoboArray");
+        int loc = GL20.glGetUniformLocation(programId, "GoboArray");
         if (loc != -1) {
             GL20.glUniform1i(loc, GOBO_TEXTURE_SLOT);
         }

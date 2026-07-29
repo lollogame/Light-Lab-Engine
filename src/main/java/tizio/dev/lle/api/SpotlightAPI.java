@@ -1,7 +1,7 @@
-package tizio.dev.lwe.api;
+package tizio.dev.lle.api;
 
-import tizio.dev.lwe.core.client.renderer.LightDataTexture;
-import tizio.dev.lwe.api.data.SpotlightInstance;
+import tizio.dev.lle.core.client.renderer.LightDataTexture;
+import tizio.dev.lle.api.data.SpotlightInstance;
 
 import java.util.Collections;
 import java.util.Set;

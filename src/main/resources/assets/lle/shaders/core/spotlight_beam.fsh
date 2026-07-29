@@ -9,13 +9,13 @@ uniform vec3 CameraPos;
 uniform vec3 LightPos;
 uniform vec3 LightDir;
 uniform vec2 FadeParams;
-uniform sampler2DArray LweGoboArray;
+uniform sampler2DArray GoboArray;
 uniform int GoboIndex;
 
-float lwe_beam_gobo_mask(float u) {
+float lle_beam_gobo_mask(float u) {
     if (GoboIndex < 0) return 1.0;
 
-    return texture(LweGoboArray, vec3(u, 0.5, float(GoboIndex))).r;
+    return texture(GoboArray, vec3(u, 0.5, float(GoboIndex))).r;
 }
 
 void main() {
@@ -48,7 +48,7 @@ void main() {
     float nearFade = 1.0 - smoothstep(FadeParams.x, FadeParams.y, distToCam);
 
     float goboU = x / coneEdge * 0.5 + 0.5;
-    float goboMask = lwe_beam_gobo_mask(goboU);
+    float goboMask = lle_beam_gobo_mask(goboU);
 
     float alpha = (sourceGlow * 0.0 + coneBody * 0.45) * vertexColor.a * nearFade * dirFade * goboMask;
 

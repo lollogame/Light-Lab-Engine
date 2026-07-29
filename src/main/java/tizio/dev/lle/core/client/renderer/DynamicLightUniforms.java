@@ -1,10 +1,10 @@
-package tizio.dev.lwe.core.client.renderer;
+package tizio.dev.lle.core.client.renderer;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ShaderInstance;
 import net.minecraft.world.phys.Vec3;
 import org.lwjgl.opengl.GL20;
-import tizio.dev.lwe.api.SpotlightAPI;
+import tizio.dev.lle.api.SpotlightAPI;
 
 public final class DynamicLightUniforms {
 
@@ -48,11 +48,11 @@ public final class DynamicLightUniforms {
     }
 
     private static void setCountUniforms(int programId, int pointCount, int spotCount) {
-        int locPoint = GL20.glGetUniformLocation(programId, "LwePointCount");
+        int locPoint = GL20.glGetUniformLocation(programId, "PointCount");
         if (locPoint != -1) {
             GL20.glUniform1i(locPoint, pointCount);
         }
-        int locSpot = GL20.glGetUniformLocation(programId, "LweSpotCount");
+        int locSpot = GL20.glGetUniformLocation(programId, "SpotCount");
         if (locSpot != -1) {
             GL20.glUniform1i(locSpot, spotCount);
         }
