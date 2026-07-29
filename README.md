@@ -1,6 +1,6 @@
-# Spotlight API Documentation
+# Light-Lab Engine API Documentation
 
-An API for **Minecraft Forge 1.20.1** (Mod ID: `lwe`) that allows mod developers to create, manipulate, and render real-time volumetric spotlights with customizable vectors, colors, lens flares, dynamic block collision raycasting, and texture gobo projections.
+An API for **Minecraft Forge 1.20.1** (Mod ID: `lle`) that allows mod developers to create, manipulate, and render real-time volumetric spotlights with customizable vectors, colors, lens flares, dynamic block collision raycasting, and texture gobo projections.
 
 ---
 
