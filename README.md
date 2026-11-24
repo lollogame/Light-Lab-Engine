@@ -4,7 +4,7 @@ An API for **Minecraft Forge 1.20.1** (Mod ID: `lle`) that allows mod developers
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 - [Features](#-features)
 - [Quick Start](#-quick-start)
   - [1. Creating & Registering a Spotlight](#1-creating--registering-a-spotlight)
